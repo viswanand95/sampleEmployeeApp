@@ -1,0 +1,55 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+</head>
+
+<body>
+<div class="jumbotron text-center">
+  <h1>Editing Employee</h1>
+  <p>Detailed report about employees!</p> 
+</div>
+
+<div class="Container">
+  <%= form_with(model: employee, local: true) do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group field">
+    <%= form.label :name %>
+    <input type="text" class="form-control"<%= form.text_field :name, id: :employee_name %>>
+  </div>
+
+  <div class="form-group field">
+    <%= form.label :age %>
+    <input type="text" class="form-control"<%= form.text_field :age, id: :employee_age %>>
+  </div>
+
+  <div class="form-group field">
+    <%= form.label :gender %>
+    <input type="text" class="form-control"<%= form.text_field :gender, id: :employee_gender %>>
+  </div>
+
+  <div class="form-group field">
+    <%= form.label :designation %>
+    <input type="text" class="form-control"<%= form.text_field :designation, id: :employee_designation %>>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>
+
+</body>
+

@@ -1,0 +1,31 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+</head>
+
+<body>
+
+<div class="jumbotron text-center">
+  <h1>Employees Detail Page</h1>
+  <p>Detailed report about employees!</p> 
+</div>
+<div class="Container">
+	
+<p id="notice"><%= notice %></p>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading"><strong>Name:</strong> <%= @employee.name %></div>
+    <div class="panel-body"><strong>Age:</strong> <%= @employee.age %> | <strong>Gender:</strong> <%= @employee.gender %> | <strong>Designation:</strong> <%= @employee.designation %></div>
+</div>
+
+<button type="button" class="btn btn-default"><%= link_to 'Edit', edit_employee_path(@employee) %></button>
+<button type="button" class="btn btn-default"><%= link_to 'Back', employees_path %></button>	
+</div>
+
+</body>
+
+

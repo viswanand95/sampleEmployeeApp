@@ -1,0 +1,53 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    a.link-to-text-color { #fff; }
+  </style>
+</head>
+
+<body>
+<div class="jumbotron text-center">
+  <h1>Employees Detail Page</h1>
+  <p>Detailed report about employees!</p> 
+</div>
+<div class="Container">
+  
+<p id="notice"><%= notice %></p>
+
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Designation</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.name %></td>
+        <td><%= employee.age %></td>
+        <td><%= employee.gender %></td>
+        <td><%= employee.designation %></td>
+        <td><button type="button" class="btn btn-default"><%= link_to 'Show', employee %></button></td>
+        <td><button type="button" class="btn btn-default"><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= button_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employee', new_employee_path %>
+</div>
+</body>
